@@ -13,7 +13,7 @@
     "autoload": {
         "psr-4": {
             "PacificDev\\Laravel9Preset\\" : "src/",
-            "PacificDev\\Laravel9Preset\\Commands": "src/Commands/"
+            "PacificDev\\Laravel9Preset\\Commands\\": "src/Commands/"
         }
     },
     "extra": {
