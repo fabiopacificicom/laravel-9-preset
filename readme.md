@@ -12,3 +12,11 @@ Note: There is a bug in the current version and the command is not automatically
 protected $commands = [ \PacificDev\Laravel9Preset\Commands\Preset::class, ];
 
 ```
+
+Once the command is registered in the laravel application
+use it by running
+
+```bash
+
+php artisan preset bootstrap
+```
