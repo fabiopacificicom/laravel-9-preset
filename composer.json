@@ -2,7 +2,10 @@
     "name": "pacificdev/laravel_9_preset",
     "description": "Default preset for laravel 9 with bootstrap",
     "license": "MIT",
-    "keywords": ["laravel", "preset"],
+    "keywords": [
+        "laravel",
+        "preset"
+    ],
     "authors": [
         {
             "name": "fbhood",
@@ -12,11 +15,15 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "PacificDev\\Laravel9Preset\\" : "src/",
+            "PacificDev\\Laravel9Preset\\": "src/",
             "PacificDev\\Laravel9Preset\\Commands\\": "src/Commands/"
         }
     },
     "extra": {
-        "providers" : ["PacificDev\\Laravel9Preset\\PacificDevServiceProvider"]
+        "laravel": {
+            "providers": [
+                "PacificDev\\Laravel9Preset\\PacificDevServiceProvider"
+            ]
+        }
     }
 }
