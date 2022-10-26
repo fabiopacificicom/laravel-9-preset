@@ -7,8 +7,6 @@ use PacificDev\Laravel9Preset\Commands\Preset;
 
 class PacificDevServiceProvider extends ServiceProvider
 {
-
-
     /**
      * Bootstrap services.
      *
@@ -16,9 +14,10 @@ class PacificDevServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        $this->commands([
-            Preset::class,
-        ]);
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                Preset::class,
+            ]);
+        }
     }
 }
