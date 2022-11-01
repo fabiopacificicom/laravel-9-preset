@@ -1,8 +1,8 @@
 <?php
 
-namespace PacificDev\Commands\Presets;
+namespace PacificDev\Laravel9Preset\Commands\Presets;
 
-use PacificDev\Commands\Preset;
+use PacificDev\Laravel9Preset\Commands\Preset;
 use Illuminate\Support\Facades\File;
 
 class UICommand extends Preset
