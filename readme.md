@@ -1,5 +1,7 @@
 # Laravel 9 Vite/Bootstrap 5 preset
 
+***Attention***: run this package on fresh laravel applications
+
 Install the package by running the composer command
 
 ```bash
