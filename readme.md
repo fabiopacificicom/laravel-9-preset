@@ -6,9 +6,32 @@ Install the package by running the composer command
 composer require pacificdev/laravel_9_preset
 ```
 
-Once the command is registered in the laravel application
-use it by running
+## Bootstrap/Sass/Vite Preset
+
+The following command will do the following tasks:
+
+- remove postcss
+- install bootstrap 5
+- install sass
+- update vite config  
+- add a default welcome page.
 
 ```bash
-php artisan preset bootstrap
+php artisan preset:ui bootstrap
+```
+
+## Laravel Breeze/Bootstrap Authentication Preset
+
+Make sure laravel breeze has been installed and scaffolded using the commands below
+
+```bash
+composer require laravel/breeze --dev
+php artisan breeze:install
+```
+
+Install PacificDev Breeze/Bootstrap Scaffolding
+
+```bash
+php artisan preset:ui bootstrap --auth
+
 ```
