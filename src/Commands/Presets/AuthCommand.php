@@ -22,6 +22,8 @@ class AuthCommand extends Preset
         self::update_auth_views();
         // remove views componets
         self::remove_default_components();
+        // delete unused config files
+        self::clean_up();
     }
     /* Layouts */
 
@@ -87,5 +89,11 @@ class AuthCommand extends Preset
     public static function update_packages()
     {
         File::copy(__DIR__ . '/../../stubs/auth/package.json', base_path('package.json'));
+    }
+
+    public static function clean_up()
+    {
+        File::delete(base_path('postcss.config.js'));
+        File::delete(base_path('tailwind.config.js'));
     }
 }
