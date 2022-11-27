@@ -66,7 +66,7 @@ class Preset extends Command
         }
 
         $packages = json_decode(file_get_contents(base_path('package.json')), true);
-
+        /* TODO: loop over the configuration_keys (it shouold be an array) and call the update_dependencies in the loop for each configuration_key */
         self::update_dependencies($packages, $configuration_key);
     }
 

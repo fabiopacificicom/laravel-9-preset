@@ -13,8 +13,12 @@ class AuthCommand extends Preset
         self::update_css();
         self::update_vite_config();
         self::update_app_js();
+        
+        //TODO: replace this double call with a single method
+        // call passing an array update_packages(['dependencies', 'devDependencies'])
         static::update_packages('dependencies');
         static::update_packages('devDependencies');
+        
         // update layouts
         self::update_layouts();
         // update welcome view
@@ -34,8 +38,7 @@ class AuthCommand extends Preset
         File::copy(__DIR__ . '/../../stubs/auth/views/layouts/app.blade.php', resource_path('views/layouts/app.blade.php'));
         // TODO: remove navigation.blade.php
         File::delete(resource_path('views/layouts/navigation.blade.php'));
-        // TODO: Remove guest.blade.php layout file and add an admin layout file
-        //File::copy(__DIR__ . '/../../stubs/auth/views/layouts/guest.blade.php', resource_path('views/layouts/guest.blade.php'));
+        // TODO: add an admin layout 
     }
 
     /* Views */
@@ -86,12 +89,13 @@ class AuthCommand extends Preset
         //$this->info('Updating js file');
         File::copy(__DIR__ . '/../../stubs/auth/app.js', resource_path('js/app.js'));
     }
-
+    //TODO: Cleanup
     // public static function update_packages()
     // {
     //     File::copy(__DIR__ . '/../../stubs/auth/package.json', base_path('package.json'));
     // }
 
+    /* TODO: This exact method has been defined twice, either in here and in UICommand.php. Refactor this method in a dedicated file, to remove code duplication.  */
     protected static function update_package_array($packages, $configuration_key)
     {
         $package_array = [];
@@ -102,6 +106,7 @@ class AuthCommand extends Preset
                 "bootstrap" => "^5.2.2"
             ];
         } else {
+            /* TODO: leave in the array only sass, remove the others */
             $package_array = [
                 "axios" => "^0.27",
                 "laravel-vite-plugin" => "^0.6.0",

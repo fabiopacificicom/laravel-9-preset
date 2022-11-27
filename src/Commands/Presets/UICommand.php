@@ -18,6 +18,8 @@ class UICommand extends Preset
         // update welcome view
         self::add_welcome_page();
         // update packages
+        //TODO: replace this double call with a single method
+        // call passing an array update_packages(['dependencies', 'devDependencies'])
         static::update_packages('dependencies');
         static::update_packages('devDependencies');
     }
@@ -42,7 +44,7 @@ class UICommand extends Preset
         //$this->info('Updating js file');
         File::copy(__DIR__ . '/../../stubs/app.js', resource_path('js/app.js'));
     }
-
+    // TODO: cleanup
     // public static function update_packages()
     // {
     //     //$this->info('Updating package.json');
@@ -50,6 +52,7 @@ class UICommand extends Preset
     //     //$this->warn('Now you can run: npm i && npm run dev');
     // }
 
+    /* TODO: This exact method has been defined twice, either in here and in AuthCommand.php. Refactor this method in a dedicated file, to remove code duplication.  */
     protected static function update_package_array($packages, $configuration_key)
     {
         $package_array = [];
@@ -60,6 +63,7 @@ class UICommand extends Preset
                 "bootstrap" => "^5.2.2"
             ];
         } else {
+            /* TODO: leave in the array only sass, remove the others */
             $package_array = [
                 "axios" => "^0.27",
                 "laravel-vite-plugin" => "^0.6.0",
