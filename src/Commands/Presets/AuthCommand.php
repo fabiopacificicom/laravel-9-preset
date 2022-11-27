@@ -68,6 +68,8 @@ class AuthCommand extends Preset
      */
     public static function update_css()
     {
+        // remove app.css
+        File::delete(resource_path('css/app.css'));
         //$this->info('folder css renamed as scss');
         File::moveDirectory(resource_path('css'), resource_path('scss'));
 
