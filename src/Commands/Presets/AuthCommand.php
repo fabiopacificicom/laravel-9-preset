@@ -13,7 +13,8 @@ class AuthCommand extends Preset
         self::update_css();
         self::update_vite_config();
         self::update_app_js();
-        self::update_packages();
+        static::update_packages('dependencies');
+        static::update_packages('devDependencies');
         // update layouts
         self::update_layouts();
         // update welcome view
@@ -42,8 +43,6 @@ class AuthCommand extends Preset
     {
         // Copy all auth views from the studs to the resources/views/auth folder
         File::copyDirectory(__DIR__ . '/../../stubs/auth/views/auth/', resource_path('views/auth/'));
-
-
     }
 
     public static function update_views()
@@ -86,9 +85,31 @@ class AuthCommand extends Preset
         File::copy(__DIR__ . '/../../stubs/auth/app.js', resource_path('js/app.js'));
     }
 
-    public static function update_packages()
+    // public static function update_packages()
+    // {
+    //     File::copy(__DIR__ . '/../../stubs/auth/package.json', base_path('package.json'));
+    // }
+
+    protected static function update_package_array($packages, $configuration_key)
     {
-        File::copy(__DIR__ . '/../../stubs/auth/package.json', base_path('package.json'));
+        $package_array = [];
+
+        if ($configuration_key === 'dependencies') {
+            $package_array = [
+                "@popperjs/core" => "^2.11.6",
+                "bootstrap" => "^5.2.2"
+            ];
+        } else {
+            $package_array = [
+                "axios" => "^0.27",
+                "laravel-vite-plugin" => "^0.6.0",
+                "lodash" => "^4.17.19",
+                "sass" => "^1.55.0",
+                "vite" => "^3.0.0"
+            ];
+        }
+
+        return $package_array + $packages;
     }
 
     public static function clean_up()

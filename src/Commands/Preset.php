@@ -58,4 +58,30 @@ class Preset extends Command
         $this->info('Bootstrap, Sass, and Vite Authentication scaffolding setup successful');
         $this->warn('Now you can run: [npm i && npm run dev] to compile all assets');
     }
+
+    protected static function update_packages($configuration_key)
+    {
+        if (!file_exists(base_path('package.json'))) {
+            return;
+        }
+
+        $packages = json_decode(file_get_contents(base_path('package.json')), true);
+
+        self::update_dependencies($packages, $configuration_key);
+        self::update_dependencies($packages, $configuration_key);
+    }
+
+    protected static function update_dependencies($packages, $configuration_key)
+    {
+        $packageArray = array_key_exists($configuration_key, $packages) ? $packages[$configuration_key] : [];
+
+        $packages[$configuration_key] = static::update_package_array($packageArray, $configuration_key);
+
+        ksort($packages[$configuration_key]);
+
+        file_put_contents(
+            base_path('package.json'),
+            json_encode($packages, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . PHP_EOL
+        );
+    }
 }
