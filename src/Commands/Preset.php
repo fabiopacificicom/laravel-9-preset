@@ -68,7 +68,6 @@ class Preset extends Command
         $packages = json_decode(file_get_contents(base_path('package.json')), true);
 
         self::update_dependencies($packages, $configuration_key);
-        self::update_dependencies($packages, $configuration_key);
     }
 
     protected static function update_dependencies($packages, $configuration_key)
