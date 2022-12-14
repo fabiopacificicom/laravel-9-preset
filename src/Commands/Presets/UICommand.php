@@ -20,7 +20,8 @@ class UICommand extends Preset
         self::add_welcome_page();
         // update packages
         self::update_packages(['dependencies', 'devDependencies']);
-
+        // delete unused config files
+        self::clean_up();
     }
 
     public static function update_css()
@@ -51,7 +52,12 @@ class UICommand extends Preset
         $packages = Helpers::get_packages();
         Helpers::update_dependencies($packages, $configuration_keys);
     }
-
+    /* TODO: remove duplication - here and in AuthCommand -> move this method in the helpers */
+    public static function clean_up()
+    {
+        File::delete(base_path('postcss.config.js'));
+        File::delete(base_path('tailwind.config.js'));
+    }
     public static function add_welcome_page()
     {
         //$this->info('Adding welcome view');
