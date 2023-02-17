@@ -43,6 +43,8 @@ class AuthCommand extends Preset
     {
         // Copy all auth views from the studs to the resources/views/auth folder
         File::copyDirectory(__DIR__ . '/../../stubs/auth/views/auth/', resource_path('views/auth/'));
+        // Copy all profile views from the studs to the resources/views/profile folder
+        File::copyDirectory(__DIR__ . '/../../stubs/auth/views/profile/', resource_path('views/profile/'));
     }
 
     public static function update_views()
