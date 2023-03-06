@@ -57,7 +57,7 @@ class UICommand extends Preset
     {
         File::delete(base_path('postcss.config.js'));
         File::delete(base_path('tailwind.config.js'));
-        File::delete(resource_path('views/scss/app.css'));
+        File::delete(resource_path('scss/app.css'));
     }
     public static function add_welcome_page()
     {
