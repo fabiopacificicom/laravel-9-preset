@@ -22,6 +22,8 @@ class UICommand extends Preset
         self::update_packages(['dependencies', 'devDependencies']);
         // delete unused config files
         self::clean_up();
+        // laravel 10 support
+        self::remove_type_module();
     }
 
     public static function update_css()
@@ -63,5 +65,22 @@ class UICommand extends Preset
     {
         //$this->info('Adding welcome view');
         File::copy(__DIR__ . '/../../stubs/welcome.blade.php', resource_path('views/welcome.blade.php'));
+    }
+
+    public static function remove_type_module()
+    {
+        $file_path = base_path('package.json');
+        $string_to_remove = '"type": "module",';
+
+        // Read file content
+        $file_content = file_get_contents($file_path);
+
+        // Remove selected string
+        $modified_content = str_replace($string_to_remove, "\r", $file_content);
+
+        // Rewrite file content
+        file_put_contents($file_path, $modified_content);
+
+        echo "Removed string for laravel 10 compatbility!" . PHP_EOL;
     }
 }

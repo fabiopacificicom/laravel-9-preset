@@ -26,6 +26,8 @@ class AuthCommand extends Preset
         self::remove_default_components();
         // delete unused config files
         self::clean_up();
+        // laravel 10 support
+        self::remove_type_module();
     }
     /* Layouts */
 
@@ -100,5 +102,22 @@ class AuthCommand extends Preset
     {
         File::delete(base_path('postcss.config.js'));
         File::delete(base_path('tailwind.config.js'));
+    }
+
+    public static function remove_type_module()
+    {
+        $file_path = base_path('package.json');
+        $string_to_remove = '"type": "module",';
+
+        // Read file content
+        $file_content = file_get_contents($file_path);
+
+        // Remove selected string
+        $modified_content = str_replace($string_to_remove, "\r", $file_content);
+
+        // Rewrite file content
+        file_put_contents($file_path, $modified_content);
+
+        echo "Removed string for laravel 10 compatbility!" . PHP_EOL;
     }
 }
