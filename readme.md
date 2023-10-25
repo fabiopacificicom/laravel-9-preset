@@ -1,4 +1,4 @@
-# Laravel 9 Vite/Bootstrap 5 preset
+# Laravel Vite/Bootstrap 5 preset
 
 ***Attention***: run this package on fresh laravel applications
 
@@ -37,3 +37,25 @@ Install PacificDev Breeze/Bootstrap Scaffolding
 php artisan preset:ui bootstrap --auth
 
 ```
+
+## Compatibility notes
+
+This package has been tested with both laravel 9.x and 10.x versions.
+However, from laravel v.10.10 the framework includes a `'type': 'module'` property in the package.json file that was not used on previous versions.
+
+### Up to laravel v10.0
+
+Install the package as described in the documentation above, no issues have been reported.
+
+### From Laravel v.10.10 and up
+
+When you install the package following the documentation above and then run `npm run dev` it returns an error due to a `require('path')` used in the `vite.config.js file`.
+
+> If require('path') is replaced with `import path from 'path'` the dev server will return another error, mentioning the laravel() function being undefined. So, the import statement can be updated or not, it won't fix the issue.
+
+To fix the issue you can:
+
+- remove from the laravel package.json file the `"type": "module"`
+- rename the vite.config.js file to `vite.config.cjs`
+
+**please note** this is a temporary solution as in both cases, remove the type:module or renaming the vite config file could trigger other issues. If you face any problem please report it [here](https://github.com/fabiopacificicom/laravel-9-preset/issues)
