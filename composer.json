@@ -12,6 +12,13 @@
             "email": "mail@fabiopacifici.com"
         }
     ],
+    "support" : {
+        "issues": "https://github.com/fabiopacificicom/laravel-9-preset/issues",
+        "source" : "https://github.com/fabiopacificicom/laravel-9-preset"
+    },
+    "suggest": {
+        "pacificdev/gemini-ai-terminal-assistant-for-laravel": "Recommended for ai-powered support with the application development"
+    },
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
