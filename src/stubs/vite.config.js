@@ -2,7 +2,7 @@ import {
     defineConfig
 } from 'vite';
 import laravel from 'laravel-vite-plugin';
-const path = require('path') // <-- require path from node
+import path from 'path'; // <-- require path from node
 
 export default defineConfig({
     plugins: [
@@ -15,6 +15,7 @@ export default defineConfig({
     // Add resolve object and aliases
     resolve: {
         alias: {
+            '~icons': path.resolve(__dirname, 'node_modules/bootstrap-icons/font'),
             '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
             '~resources': '/resources/'
         }

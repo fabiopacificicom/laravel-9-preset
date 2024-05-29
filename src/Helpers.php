@@ -3,6 +3,7 @@
 namespace PacificDev\Laravel9Preset;
 
 use Illuminate\Support\Arr;
+
 class Helpers
 {
   public static function get_packages()
@@ -21,17 +22,17 @@ class Helpers
 
     if ($configuration_key === 'dependencies') {
       $package_array = [
-        "@popperjs/core" => "^2.11.6",
-        "bootstrap" => "^5.2.2"
+        "@popperjs/core" => "^2.11.8",
+        "bootstrap" => "^5.3.3",
+        "bootstrap-icons" => "^1.11.3"
       ];
     } else {
       /* TODO: leave in the array only sass, remove the others */
       $package_array = [
-        "axios" => "^0.27",
-        "laravel-vite-plugin" => "^0.6.0",
-        "lodash" => "^4.17.19",
-        "sass" => "^1.55.0",
-        "vite" => "^3.0.0"
+        "sass" => "^1.71.0",
+        "axios" => "^1.6.4",
+        "laravel-vite-plugin" => "^1.0.0",
+        "vite" => "^5.0.0"
       ];
     }
 
