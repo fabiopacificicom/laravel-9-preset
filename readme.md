@@ -13,7 +13,8 @@ composer require pacificdev/laravel_9_preset
 The following command will do the following tasks:
 
 - remove postcss
-- install bootstrap 5
+- install bootstrap 5.3.x
+- install bootstrap icons
 - install sass
 - update vite config  
 - add a default welcome page.
@@ -40,22 +41,9 @@ php artisan preset:ui bootstrap --auth
 
 ## Compatibility notes
 
-This package has been tested with both laravel 9.x and 10.x versions.
-However, from laravel v.10.10 the framework includes a `'type': 'module'` property in the package.json file that was not used on previous versions.
+This package has been tested with laravel 9.x, 10.x and 11.x
 
-### Up to laravel v10.0
-
-Install the package as described in the documentation above, no issues have been reported.
-
-### From Laravel v.10.10 and up
-
-When you install the package following the documentation above and then run `npm run dev` it returns an error due to a `require('path')` used in the `vite.config.js file`.
-
-> If require('path') is replaced with `import path from 'path'` the dev server will return another error, mentioning the laravel() function being undefined. So, the import statement can be updated or not, it won't fix the issue.
-
-To fix the issue you can:
-
-- remove from the laravel package.json file the `"type": "module"`
-- rename the vite.config.js file to `vite.config.cjs`
-
-**please note** this is a temporary solution as in both cases, remove the type:module or renaming the vite config file could trigger other issues. If you face any problem please report it [here](https://github.com/fabiopacificicom/laravel-9-preset/issues)
+- use package version 1.1 for laravel 9
+- use package version 1.3 for laravel 10 and 11
+  
+If you face any problem with this package please open an issue [here](https://github.com/fabiopacificicom/laravel-9-preset/issues)
