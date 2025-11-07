@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0] - 2025-11-07
+
+### Changed
+
+- Bump PHP and Laravel framework requirements to support newer environments (see composer.json).
+- Upgrade various npm dependencies in the stubs and package helper updates.
+- Remove unnecessary packages and update package versions referenced in `Helpers.php`.
+
+### Fixed
+
+- Fix missing semicolon in `app.scss` import stub.
+
 ## [1.3.0] - 2024-05-29
 
 ### Added
