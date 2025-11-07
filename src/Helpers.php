@@ -23,16 +23,16 @@ class Helpers
     if ($configuration_key === 'dependencies') {
       $package_array = [
         "@popperjs/core" => "^2.11.8",
-        "bootstrap" => "^5.3.3",
-        "bootstrap-icons" => "^1.11.3"
+        "bootstrap" => "^5.3.8",
+        "bootstrap-icons" => "^1.13.1"
       ];
     } else {
       /* TODO: leave in the array only sass, remove the others */
       $package_array = [
-        "sass" => "^1.71.0",
-        "axios" => "^1.6.4",
-        "laravel-vite-plugin" => "^1.0.0",
-        "vite" => "^5.0.0"
+        "sass" => "^1.93.2",
+        "axios" => "^1.12.2",
+        "laravel-vite-plugin" => "^2.0.1",
+        "vite" => "^7.1.11"
       ];
     }
 

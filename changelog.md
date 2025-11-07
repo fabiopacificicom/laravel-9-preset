@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.3.1] - 2024-06-10
+
+### Updated
+
+- Added Laravel 12 compatibility by updating framework constraint to include `^12.0`
+- Updated PHP requirement to `^8.2 || ^8.3 || ^8.4` to align with Laravel 12 requirements
+- Updated npm package versions to latest stable releases:
+  - Updated `vite` to version 7.1.11
+  - Updated `laravel-vite-plugin` to version 2.0.1
+  - Updated `axios` to version 1.12.2
+  - Updated `sass` to version 1.93.2
+  - Updated `bootstrap` to version 5.3.8
+  - Updated `bootstrap-icons` to version 1.13.1
+  - Updated `@popperjs/core` to version 2.11.8 (unchanged)
+
 ## [1.3.0] - 2024-05-29
 
 ### Added

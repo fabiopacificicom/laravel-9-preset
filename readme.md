@@ -41,9 +41,9 @@ php artisan preset:ui bootstrap --auth
 
 ## Compatibility notes
 
-This package has been tested with laravel 9.x, 10.x and 11.x
+This package has been tested with laravel 9.x, 10.x, 11.x and 12.x
 
 - use package version 1.1 for laravel 9
-- use package version 1.3 for laravel 10 and 11
+- use package version 1.3 for laravel 10, 11 and 12
   
 If you face any problem with this package please open an issue [here](https://github.com/fabiopacificicom/laravel-9-preset/issues)
